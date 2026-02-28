@@ -1,17 +1,14 @@
-#include <cstddef>
 #include <utility>
-#include <vector>
 
 
 
-std::pair<int, int> FindIdOfSum (int expected, const std::vector<int> &nums)
+auto FindTwoSum (int expected, int size, int* nums)
 {
-    std::size_t left {0};
-    std::size_t right {nums.size()};
-    std::pair<int, int> pair_of_ids(-1, -1);
-    if (left == right)
+    int left {0};
+    int right {size-1};
+    if (left == right | right == -1)
     {
-        return pair_of_ids;
+        return std::make_pair(-1, -1);
     }
     while ((nums[left]+nums[right]) != expected) {
         if (nums[left]+nums[right] > expected)
@@ -24,8 +21,8 @@ std::pair<int, int> FindIdOfSum (int expected, const std::vector<int> &nums)
         }
         if (left >= right)
         {
-            return pair_of_ids;
+            return std::make_pair(-1, -1);
         }
     }
-    return std::make_pair(left, right);
+    return std::make_pair(nums[left], nums[right]);
 };

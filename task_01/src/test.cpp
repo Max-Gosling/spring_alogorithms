@@ -1,19 +1,20 @@
 #include <gtest/gtest.h>
 #include <utility>
-#include <vector>
 
 #include <search.hpp>
 
-TEST(SumOfTwo, Simple) {
-  std::vector<int> v = {1, 2,  4, 6, 8, 52};
-  ASSERT_EQ(FindIdOfSum(6, v), std::make_pair(1, 2));
-  ASSERT_EQ(FindIdOfSum(42, v), std::make_pair(-1, -1));
+TEST(SumOfTwo, Simple)
+{
+    int nums[5] = {1, 2, 4, 8, 52};
+    ASSERT_EQ(FindTwoSum(6, 5, nums), std::make_pair(2, 4));
+    ASSERT_EQ(FindTwoSum(42, 5, nums), std::make_pair(-1, -1));
 }
 
-TEST(SumOfTwo, Empty){
-  std::vector<int> empty_v = {};
-  std::vector<int> one_elem = {1};
-  ASSERT_EQ(FindIdOfSum(12, empty_v), std::make_pair(-1, -1));
-  ASSERT_EQ(FindIdOfSum(42, one_elem), std::make_pair(-1, -1));
-  ASSERT_EQ(FindIdOfSum(2, one_elem), std::make_pair(-1, -1));
+TEST(SumOfTwo, Empty)
+{
+    int empty[] = {};
+    int one[1] = {1};
+    ASSERT_EQ(FindTwoSum(0, 0, empty), std::make_pair(-1, -1));
+    ASSERT_EQ(FindTwoSum(2, 1, one), std::make_pair(-1, -1));
+    ASSERT_EQ(FindTwoSum(42, 1, one), std::make_pair(-1, -1));
 }
