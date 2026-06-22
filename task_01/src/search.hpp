@@ -2,11 +2,11 @@
 
 
 
-auto FindTwoSum (int expected, int size, int* nums)
+auto FindTwoSum(int expected, int size, int* nums)
 {
     int left {0};
     int right {size-1};
-    if (left == right | right == -1)
+    if (left == right || right == -1)
     {
         return std::make_pair(-1, -1);
     }

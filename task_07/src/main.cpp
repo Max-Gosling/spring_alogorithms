@@ -1,20 +1,19 @@
 #include <iostream>
-#include "sort.hpp"
 #include <vector>
+#include "sort.hpp"
 
-
-int main() { 
+int main() {
     int N;
-    std::vector<int> nums(N);
     std::cin >> N;
-    for (int i = 0; i < N; ++i)
-    {
+    std::vector<int> nums(N);
+    for (int i = 0; i < N; ++i) {
         std::cin >> nums[i];
     }
     QuickSort(N, nums);
-    for (int elem:nums)
-    {
-        std::cout << elem << " ";
+    for (auto i = 0; i < nums.size(); ++i) {
+        if (i > 0) std::cout << ' ';
+        std::cout << nums[i];
     }
-    return 0; 
+    std::cout << std::endl;
+    return 0;
 }
